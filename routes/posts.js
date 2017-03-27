@@ -1,15 +1,15 @@
 var express = require('express');
 var router = express.Router();
+const knex = require('../knex')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  knex('posts')
+  .then(data => {
+    console.log(data)
+    res.render('posts', {puppies: data});
+  })
 });
 
-router.post('/', function(req, res, next) {
-  let name = req.body.name;
-  console.log(name);
-  res.render();
-})
 
 module.exports = router;
