@@ -10,6 +10,7 @@ exports.seed = function(knex, Promise) {
         { name: 'Lauren' },
         { name: 'Tim' },
         { name: 'Megan' }
+        // { name: 'John' }
       ]);
     });
 };

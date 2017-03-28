@@ -16,41 +16,50 @@
 </head>
 
 <body>
-  <header>
-    <nav>
-        <div class="nav-wrapper">
-            <form>
-                <div class="input-field">
-                    <input id="search" type="search" required>
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
+    <header>
+        <nav class="nav-extended">
+                <div class="nav-wrapper">
+                    <a href="./posts" class="brand-logo">Puppies</a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li>Welcome {{name}}!</li>
+                        <li><a href="./posts/{{name}}">Posts</a></li>
+                        <li><a href="../users/{{name}}">Your Page</a></li>
+                    </ul>
+                  </div>
+                  <div class="nav-wrapper">
+                    <form>
+                        <div class="input-field">
+                            <input id="search" type="search" required>
+                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                        </div>
+                    </form>
+                  </div>
                 </div>
-            </form>
-        </div>
-    </nav>
-  </header>
-  <br>
-  <br>
-  <main>
-    <div class="container">
-      {{#each puppies}}
-        <div class="row">
-            <div class="col s12 m7">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="{{this.photo}}">
-                        <span class="card-title">{{this.title}}</span>
-                    </div>
-                    <div class="card-content">
-                        <p>Date: {{this.created_at}}</p>
-                        <p>{{this.body}}</p>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <main>
+        <div class="container">
+            {{#each puppies}}
+                <div class="row">
+                    <div class="col s12 m7">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{this.photo}}">
+                                <span class="card-title">{{this.title}}</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Date: {{this.created_at}}</p>
+                                <p>{{this.body}}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {{/each}}
         </div>
-        {{/each}}
-    </div>
-  </main>
+    </main>
 </body>
 
 </html>

@@ -3,11 +3,11 @@ var router = express.Router();
 const knex = require('../knex')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/:name', function(req, res, next) {
+  let name = req.params.name;
   knex('posts')
   .then(data => {
-    console.log(data)
-    res.render('posts', {puppies: data});
+    res.render('posts', {puppies: data, name: name});
   })
 });
 

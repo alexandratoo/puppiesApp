@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Puppies</title>
+    <!-- Materialize.css and styles.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+
+    <!-- jQuery and materialize.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-extended">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Puppies</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="http://localhost:3000/posts/{{name}}">Posts</a></li>
+                    <li><a href="http://localhost:3000/users/{{name}}">User Page</a></li>
+                </ul>
+            </div>
+            <div class="nav-wrapper">
+                <form>
+                    <div class="input-field">
+                        <input id="search" type="search" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <main>
+
+        <div class="row">
+            <form class="col s12" method="post">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">pets</i>
+                        <input type="text" class="validate" name="title">
+                        <label for="title">title</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">pets</i>
+                        <input type="url" class="validate" name="url">
+                        <label for="photo-url">photo url</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="textarea1" class="materialize-textarea" name="body"></textarea>
+                            <label for="textarea1">Textarea</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="waves-effect waves-light btn" type="submit">create post<i class="material-icons right">pets</i></button>
+            </form>
+        </div>
+
+        <div class="container">
+            {{#each data}}
+                <div class="row">
+                    <div class="col s12 m7">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{this.photo}}">
+                                <span class="card-title">{{this.title}}</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Date: {{this.created_at}}</p>
+                                <p>{{this.body}}</p>
+                                <p>Written by {{this.name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </main>
+</body>
+
+</html>
