@@ -38,7 +38,7 @@ router.post('/:name', (req, res, next) => {
                 }, '*')
                 .then(data => {
                   console.log(data,'succesful insert into post?');
-                    res.redirect('../users');
+                    res.redirect(`../users/${name}`);
                 })
 
         })
